@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-gcc $@ -o ./main
+gcc $@ -o ./main -lm
 echo ""
 ./main
