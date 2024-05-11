@@ -127,15 +127,44 @@ void remove_start () {
     }   
 }
 
+void count(){
+    if (!isEmpty()){
+        current = head;
+        int count = 1;
+        while(current->next != NULL) {
+            count++;
+            current = current->next;
+        }
+        printf("\nThe number of elements are: %d", count);
+    } else return;
+}
+
+void search(int num){
+    if(!isEmpty()){
+        current = head;
+        int i = 0;
+        while(current->next != NULL || current->next == NULL){
+            if(current->data == num){
+                printf("\nThe element was found at %d", i);
+                return;
+            }
+            i++, current = current->next;
+        }
+        printf("The Element wasn't found!");
+    }
+    return;
+}
 
 int main(){
 
     add(11);
     add(12);
-    printList();
     add(13);
-    remove_end();
     add(14);
+    printList();
+    search(14);
+    remove_end();
+    count();
     remove_index(1);
     add_first(15);
     add_index(23,2);
