@@ -157,18 +157,64 @@ void search(int num){
 
 int main(){
 
-    add(11);
-    add(12);
-    add(13);
-    add(14);
-    printList();
-    search(14);
-    remove_end();
-    count();
-    remove_index(1);
-    add_first(15);
-    add_index(23,2);
-    printList();
+    int choice;
+    while (1) {
+        printf("\n\nMenu:\n");
+        printf("1. Add element\n2. Add element at the beginning\n3. Add element at a specific index\n4. Remove element at a specific index\n5. Remove element from the end\n6. Remove element from the beginning\n7. Search for an element\n8. Print the list\n9. Count the number of elements\n0. Exit\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the element to add: ");
+                int num;
+                scanf("%d", &num);
+                add(num);
+                break;
+            case 2:
+                printf("Enter the element to add at the beginning: ");
+                int num2;
+                scanf("%d", &num2);
+                add_first(num2);
+                break;
+            case 3:
+                printf("Enter the element to add: ");
+                int num3;
+                scanf("%d", &num3);
+                printf("Enter the index to add at: ");
+                int index;
+                scanf("%d", &index);
+                add_index(num3, index);
+                break;
+            case 4:
+                printf("Enter the index to remove: ");
+                int index2;
+                scanf("%d", &index2);
+                remove_index(index2);
+                break;
+            case 5:
+                remove_end();
+                break;
+            case 6:
+                remove_start();
+                break;
+            case 7:
+                printf("Enter the element to search: ");
+                int num4;
+                scanf("%d", &num4);
+                search(num4);
+                break;
+            case 8:
+                printList();
+                break;
+            case 9:
+                count();
+                break;
+            case 0:
+                exit(0);
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
 
     return 0;
 }
